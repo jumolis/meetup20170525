@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="login_flow">
+  <Parameters>
+    <Parameter id="0" name="role" type="1">
+      <values>
+        <value>admin</value>
+        <value>user</value>
+        <value>guest</value>
+        <value>forbidden</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="1" name="browser" type="1">
+      <values>
+        <value>chrome</value>
+        <value>firefox</value>
+        <value>ie</value>
+        <value>safari</value>
+        <value>opera</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+    <Parameter id="2" name="os" type="1">
+      <values>
+        <value>osx</value>
+        <value>windows</value>
+        <value>android</value>
+        <value>ios</value>
+      </values>
+      <basechoices />
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints>
+    <Constraint text="(os=&quot;windows&quot;) =&gt; (browser != &quot;safari&quot;)">
+      <Parameters>
+        <Parameter name="os" />
+        <Parameter name="browser" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(os != &quot;windows&quot;) =&gt; (browser != &quot;ie&quot;)">
+      <Parameters>
+        <Parameter name="os" />
+        <Parameter name="browser" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(os=&quot;android&quot;) =&gt; (browser != &quot;safari&quot;)">
+      <Parameters>
+        <Parameter name="os" />
+        <Parameter name="browser" />
+      </Parameters>
+    </Constraint>
+  </Constraints>
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>admin</Value>
+      <Value>chrome</Value>
+      <Value>windows</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>user</Value>
+      <Value>chrome</Value>
+      <Value>android</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>guest</Value>
+      <Value>chrome</Value>
+      <Value>ios</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>forbidden</Value>
+      <Value>chrome</Value>
+      <Value>osx</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>admin</Value>
+      <Value>firefox</Value>
+      <Value>android</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>user</Value>
+      <Value>firefox</Value>
+      <Value>ios</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>guest</Value>
+      <Value>firefox</Value>
+      <Value>osx</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>forbidden</Value>
+      <Value>firefox</Value>
+      <Value>windows</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>admin</Value>
+      <Value>ie</Value>
+      <Value>windows</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>user</Value>
+      <Value>ie</Value>
+      <Value>windows</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>guest</Value>
+      <Value>ie</Value>
+      <Value>windows</Value>
+    </Testcase>
+    <Testcase TCNo="11">
+      <Value>12</Value>
+      <Value>forbidden</Value>
+      <Value>ie</Value>
+      <Value>windows</Value>
+    </Testcase>
+    <Testcase TCNo="12">
+      <Value>13</Value>
+      <Value>admin</Value>
+      <Value>safari</Value>
+      <Value>ios</Value>
+    </Testcase>
+    <Testcase TCNo="13">
+      <Value>14</Value>
+      <Value>user</Value>
+      <Value>safari</Value>
+      <Value>osx</Value>
+    </Testcase>
+    <Testcase TCNo="14">
+      <Value>15</Value>
+      <Value>guest</Value>
+      <Value>safari</Value>
+      <Value>osx</Value>
+    </Testcase>
+    <Testcase TCNo="15">
+      <Value>16</Value>
+      <Value>forbidden</Value>
+      <Value>safari</Value>
+      <Value>ios</Value>
+    </Testcase>
+    <Testcase TCNo="16">
+      <Value>17</Value>
+      <Value>admin</Value>
+      <Value>opera</Value>
+      <Value>osx</Value>
+    </Testcase>
+    <Testcase TCNo="17">
+      <Value>18</Value>
+      <Value>user</Value>
+      <Value>opera</Value>
+      <Value>android</Value>
+    </Testcase>
+    <Testcase TCNo="18">
+      <Value>19</Value>
+      <Value>guest</Value>
+      <Value>opera</Value>
+      <Value>android</Value>
+    </Testcase>
+    <Testcase TCNo="19">
+      <Value>20</Value>
+      <Value>forbidden</Value>
+      <Value>opera</Value>
+      <Value>ios</Value>
+    </Testcase>
+    <Testcase TCNo="20">
+      <Value>21</Value>
+      <Value>forbidden</Value>
+      <Value>opera</Value>
+      <Value>android</Value>
+    </Testcase>
+    <Testcase TCNo="21">
+      <Value>22</Value>
+      <Value>forbidden</Value>
+      <Value>opera</Value>
+      <Value>windows</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>ROLE</Value>
+    <Value>BROWSER</Value>
+    <Value>OS</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.08</ExecutionTime>
+    <MaxDomainSize>5</MaxDomainSize>
+    <MinDomainSize>4</MinDomainSize>
+    <TotalNoOfCombination>51</TotalNoOfCombination>
+    <TotalNoOfTests>22</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
